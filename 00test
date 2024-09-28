@@ -1,0 +1,105 @@
+#!/bin/bash --shebang
+
+#This is a comment
+
+echo hello world
+
+touch bash_script.sh
+
+sh bash_script.sh
+
+bash bash_script.sh
+
+which bash
+
+./bash_script.sh
+
+ls -l
+
+chmod +x bash_script.sh
+
+man echo
+
+echo -e "\nhello\nworld\n"
+
+echo $*
+./bash_script.sh argument1 argument2
+
+echo $1
+echo $2
+
+help
+
+help if
+
+if [ $1 == argument1 ]
+elif [ $1 == argument2 ]
+then
+    echo "argument2"
+else
+    echo "no argument"
+fi
+
+-eq --> equal
+-ne --> not equal
+-lt --> less than
+-le --> less than or equal
+-gt --> greater than
+-ge --> greater than or equal
+
+
+[[ 4 -le 5]]
+echo $? #exit status # 0 - success, 1 - failure
+
+bad_command; echo $? # 127
+ls; echo $? # 0
+ls -y; echo $? # 2
+
+[[ -a not_found.sh ]];echo $?; #1
+[[ -a bash_script.sh ]];echo $?; #0
+
+File operators:
+    -a file exists.
+    -d file is a directory.
+    -f file exists and is a regular file.
+    -r file is readable by you.
+    -s file exists and is not empty.
+    -w writable by you.
+    -x executable by you.
+
+for ((i=0; i<5; i++))
+do
+    echo $i
+done
+
+ls /
+
+ls /bin
+
+printenv
+
+I=5
+J=$((I+5))
+declare -p J
+
+ARR = ("a" "b" "c")
+echo ${ARR[0]}
+echo ${ARR[*]} #all elements
+echo ${ARR[@]} #all elements
+
+
+[[ hello == hello ]];echo $?;
+[[ "hello world" =~ "lo wor" ]];echo $?;
+[[ "hello world" =~ ^h ]];echo $?;
+
+=~ --> regex match
+
+GET_ARGUMENT()
+{
+    echo "Enter argument1"
+}
+
+until [[ $1 != "argument1" ]]
+do
+    GET_ARGUMENT
+done
