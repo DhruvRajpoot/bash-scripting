@@ -40,6 +40,8 @@ else
     echo "no argument"
 fi
 
+-n  --> string is not null
+-z --> string is null
 -eq --> equal
 -ne --> not equal
 -lt --> less than
@@ -103,3 +105,32 @@ until [[ $1 != "argument1" ]]
 do
     GET_ARGUMENT
 done
+
+: '
+This is a multiline comment
+This is a multiline comment
+This is a multiline comment
+'
+
+cat bash_script.sh
+
+IFS=":"
+
+cp bash_script.sh bash_script_copy.sh
+
+if [[ -z $1 ]]
+then
+    echo "No argument"
+else
+    echo "Argument is $1"
+fi
+
+> #overwrites the file
+>> #appends to the file
+1> #redirects the output to a file
+2> #redirects the error to a file
+< #reads the file
+cat 
+wc
+grep
+sed
